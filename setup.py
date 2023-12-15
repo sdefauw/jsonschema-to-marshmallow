@@ -1,7 +1,7 @@
 import io
 import os
 
-from setuptools import setup, find_namespace_packages
+from setuptools import setup, find_packages
 
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -24,7 +24,7 @@ setup(
     author="Sebastien De Fauw",
     author_email="sdefauw@gmail.com",
     url="https://github.com/sdefauw/mjsonschema-to-marshmallow",
-    packages=find_namespace_packages(include=['jsonschema_marshmallow.*']),
+    packages=find_packages(exclude=("test*",)),
     include_package_data=True,
     install_requires=[
         "jsonschema",
