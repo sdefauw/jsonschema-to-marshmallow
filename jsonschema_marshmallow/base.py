@@ -1,6 +1,6 @@
 import re
 
-from jsonschema.validators import Draft7Validator
+from jsonschema.validators import validator_for
 from marshmallow import validate, fields, Schema
 from marshmallow_oneofschema import OneOfSchema
 
@@ -47,7 +47,7 @@ SKIP_FIELD = ("$ref", 'items')
 class MarshmallowJsonSchema:
 
     def __init__(self, schema):
-        self.json_schema = Draft7Validator(schema).schema
+        self.json_schema = validator_for(schema)(schema).schema
 
     def _field_arguments(self, type, **kwargs):
         # TODO improve with more fields
@@ -66,7 +66,6 @@ class MarshmallowJsonSchema:
                 d[k] = v
         if metadata:
             d['metadata'] = metadata
-        print("F2F", d)
         return d
 
     def _field_argument_type(self, schema, type, **kwargs):
