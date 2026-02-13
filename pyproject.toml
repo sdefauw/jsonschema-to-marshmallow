@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jsonschema-to-marshmallow"
+version = "0.1.1"
+description = "Get Marshmallow class from JSON Schema"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Sebastien De Fauw", email = "sdefauw@gmail.com" },
+]
+keywords = ["jsonschema", "marshmallow"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "jsonschema",
+  "marshmallow>=3.26.2",
+  "marshmallow-oneofschema",
+]
+
+[project.urls]
+Homepage = "https://github.com/sdefauw/jsonschema-to-marshmallow"
+Repository = "https://github.com/sdefauw/jsonschema-to-marshmallow"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = ["test*"]
